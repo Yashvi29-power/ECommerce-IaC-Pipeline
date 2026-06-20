@@ -4,28 +4,33 @@ on:
   push:
     branches:
       - main
-      - feature/cicd-pipeline
+      - feature/**
+
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-    - name: Setup Python
-      uses: actions/setup-python@v5
+      - name: Install Dependencies
+        run: |
+          pip install -r app/requirements.txt
 
-      with:
-        python-version: "3.12"
+      - name: Verify Application
+        run: |
+          python -m py_compile app/app.py
 
-    - name: Install Dependencies
-      run: |
-        pip install -r app/requirements.txt
-
-    - name: Verify Application
-      run: |
-        python -m py_compile app/app.py
+      - name: Build Docker Image
+        run: |
+          docker build -t ecommerce-app -f docker/Dockerfile .
