@@ -27,6 +27,10 @@ jobs:
         run: |
           pip install -r app/requirements.txt
 
+      - name: Security Scan
+        run: |
+          bandit -r app/
+
       - name: Verify Application
         run: |
           python -m py_compile app/app.py
