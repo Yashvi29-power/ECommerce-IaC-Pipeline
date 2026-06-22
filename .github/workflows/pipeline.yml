@@ -38,3 +38,8 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t ecommerce-app -f docker/Dockerfile .
+      - name: Upload Build Information
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: README.md

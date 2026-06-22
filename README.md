@@ -19,3 +19,18 @@ A DevSecOps project focused on securing an enterprise e-commerce deployment pipe
 * Container Security Engineer
 * IaC Security Engineer
 * Documentation & Reporting Engineer
+
+## CI/CD Security Features
+
+- GitHub Actions Pipeline
+- Docker Build Automation
+- Bandit SAST Security Scanning
+- Build Artifact Generation
+
+Pipeline Flow:
+
+Install Dependencies
+→ Security Scan
+→ Verify Application
+→ Docker Build
+→ Artifact Upload
