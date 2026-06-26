@@ -2,10 +2,10 @@ An enterprise-grade DevSecOps pipeline for a containerized e-commerce applicatio
 ## Team Structure
 | Member | Role |
 |--------|------|
-| Yashvi | Team Lead & CI/CD Security Integration |
+| Member 1 (Yashvi) | Team Lead & CI/CD Security Integration |
 | Member 2 (Sarbajit) | Application & Container Security |
-| Member 3 | Infrastructure as Code Security |
-| Member 4 | Deployment, Reporting & Documentation |
+| Member 3 (Harshita) | Infrastructure as Code Security |
+| Member 4 (Kaish) | Deployment, Reporting & Documentation |
 
 ## Branch Strategy
 ## Member 2 - Container Security Setup
