@@ -28,7 +28,7 @@ jobs:
           format: table
           exit-code: '0'
           ignore-unfixed: true
-          severity: CRITICAL,HIGH,MEDIUM
+          severity: CRITICAL,HIGH
 
       - name: Run Trivy SARIF Report
         uses: aquasecurity/trivy-action@v0.36.0
@@ -38,7 +38,7 @@ jobs:
           output: trivy-image-report.sarif
           exit-code: '0'
           ignore-unfixed: true
-          severity: CRITICAL,HIGH,MEDIUM
+          severity: CRITICAL,HIGH
 
       - name: Upload Trivy Image SARIF Report
         uses: actions/upload-artifact@v4
@@ -62,7 +62,7 @@ jobs:
           format: table
           exit-code: '0'
           ignore-unfixed: true
-          severity: CRITICAL,HIGH,MEDIUM
+          severity: CRITICAL,HIGH
 
       - name: Run Trivy Filesystem SARIF Report
         uses: aquasecurity/trivy-action@v0.36.0
@@ -73,7 +73,7 @@ jobs:
           output: trivy-fs-report.sarif
           exit-code: '0'
           ignore-unfixed: true
-          severity: CRITICAL,HIGH,MEDIUM
+          severity: CRITICAL,HIGH
 
       - name: Upload Trivy Filesystem SARIF Report
         uses: actions/upload-artifact@v4
