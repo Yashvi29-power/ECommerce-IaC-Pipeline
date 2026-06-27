@@ -49,6 +49,15 @@ jobs:
         run: |
           pip install cyclonedx-bom
           cyclonedx-py requirements app/requirements.txt -o reports/sbom.json
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Validate Terraform
+        run: |
+          cd terraform
+          terraform init
+          terraform validate
           
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
