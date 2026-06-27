@@ -22,7 +22,7 @@ jobs:
           docker build -t ecommerce-app:latest -f app/Dockerfile .
 
       - name: Run Trivy Image Scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ecommerce-app:latest
           format: table
@@ -31,7 +31,7 @@ jobs:
           severity: CRITICAL,HIGH,MEDIUM
 
       - name: Run Trivy SARIF Report
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ecommerce-app:latest
           format: sarif
@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Trivy Filesystem Scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           scan-type: fs
           scan-ref: app/
@@ -65,7 +65,7 @@ jobs:
           severity: CRITICAL,HIGH,MEDIUM
 
       - name: Run Trivy Filesystem SARIF Report
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           scan-type: fs
           scan-ref: app/
