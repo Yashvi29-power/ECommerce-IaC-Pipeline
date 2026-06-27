@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build --no-cache -t ecommerce-app:latest -f app/Dockerfile .
+          docker build --no-cache -t ecommerce-app:latest app/
 
       - name: Run Trivy Image Scan
         run: |
