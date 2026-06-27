@@ -1,0 +1,76 @@
+name: Container Security Scan - Trivy
+
+on:
+  push:
+    branches:
+      - feature/container-security
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  trivy-image-scan:
+    runs-on: ubuntu-latest
+    name: Trivy Docker Image Scan
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ecommerce-app:latest -f app/Dockerfile .
+
+      - name: Run Trivy Image Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ecommerce-app:latest
+          format: table
+          exit-code: '0'
+          severity: CRITICAL,HIGH,MEDIUM
+
+      - name: Run Trivy SARIF Report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ecommerce-app:latest
+          format: sarif
+          output: trivy-image-report.sarif
+          severity: CRITICAL,HIGH,MEDIUM
+
+      - name: Upload Trivy SARIF Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-image-report
+          path: trivy-image-report.sarif
+
+  trivy-filesystem-scan:
+    runs-on: ubuntu-latest
+    name: Trivy Filesystem Dependency Scan
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy Filesystem Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: app/
+          format: table
+          exit-code: '0'
+          severity: CRITICAL,HIGH,MEDIUM
+
+      - name: Run Trivy Filesystem SARIF Report
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: app/
+          format: sarif
+          output: trivy-fs-report.sarif
+          severity: CRITICAL,HIGH,MEDIUM
+
+      - name: Upload Trivy Filesystem SARIF Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-fs-report
+          path: trivy-fs-report.sarif
