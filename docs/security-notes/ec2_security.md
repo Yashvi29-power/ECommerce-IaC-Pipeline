@@ -13,3 +13,10 @@
 - Avoid SSH access from all IPs in production 
 - Use IAM roles instead of hardcoded credentials
 - Keep instances updated
+
+## Common Security Misconfigurations
+- Public SSH access (0.0.0.0/0)
+- Public S3 bucket
+- Missing encryption
+- Missing versioning
+- Overly permissive IAM policies
