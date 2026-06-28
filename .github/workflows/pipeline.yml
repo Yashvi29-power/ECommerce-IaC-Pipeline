@@ -58,6 +58,14 @@ jobs:
           cd terraform
           terraform init
           terraform validate
+
+      - name: Install Checkov
+        run: |
+          pip install checkov
+
+      - name: Scan Infrastructure
+        run: |
+          checkov -d terraform
           
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
