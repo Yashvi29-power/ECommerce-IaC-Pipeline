@@ -1,19 +1,39 @@
-# Terraform Security Misconfigurations
+# Security Misconfigurations Prepared for Testing
 
-## 1. Public S3 Bucket
-Risk:
-- Data leakage
-- Unauthorized access
+## Misconfiguration 1
+SSH port 22 is open to the Internet (0.0.0.0/0).
 
-## 2. Open SSH Port (22)
-Risk:
-- Brute-force attacks
-- Unauthorized login attempts
+Purpose:
+To demonstrate detection of insecure network access.
 
-## 3. Open HTTP Port (80)
-Risk:
-- Unencrypted communication
+---
 
-## Purpose
+## Misconfiguration 2
+HTTP port 80 is publicly accessible.
 
-These insecure configurations are created only for learning and testing. In Week 3, Checkov and TFSec will detect these issues, and they will then be fixed.
+Purpose:
+Used for security scanning demonstrations.
+
+---
+
+## Misconfiguration 3
+S3 Public Access Block is disabled.
+
+Purpose:
+Allows Checkov/TFSec to detect insecure bucket settings.
+
+---
+
+## Misconfiguration 4
+S3 Bucket Versioning is not enabled.
+
+Purpose:
+Demonstrates missing data protection.
+
+---
+
+## Misconfiguration 5
+Server-side encryption is not configured.
+
+Purpose:
+Allows security tools to report missing encryption.
