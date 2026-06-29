@@ -29,9 +29,13 @@ jobs:
             pip install safety
             pip install cyclonedx-bom
 
+      - name: Install pip-audit
+        run: |
+            pip install pip-audit
+
       - name: Dependency Vulnerability Scan
         run: |
-          safety scan
+            pip-audit -r app/requirements.txt
 
       - name: Security Scan
         run: |
