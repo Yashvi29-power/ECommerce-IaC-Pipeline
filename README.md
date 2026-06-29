@@ -34,3 +34,24 @@ Install Dependencies
 → Verify Application
 → Docker Build
 → Artifact Upload
+
+## Security Features
+
+- GitHub Actions CI/CD
+- Safety Dependency Scanning
+- Bandit SAST
+- Docker Build Automation
+- SBOM Generation
+- Terraform Validation
+- Checkov IaC Security Scanning
+
+## Project Structure
+
+```
+.github/workflows/
+app/
+docker/
+terraform/
+reports/
+docs/
+```
