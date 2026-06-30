@@ -23,7 +23,8 @@ COPY app.py .
 
 RUN addgroup --system appgroup && \
     adduser --system --ingroup appgroup appuser && \
-    chown -R appuser:appgroup /app
+    chown -R appuser:appgroup /app && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/* /usr/share/doc/* /usr/share/man/* /tmp/*
 
 USER appuser
 
