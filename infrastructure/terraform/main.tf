@@ -5,13 +5,26 @@ provider "aws" {
 resource "aws_s3_bucket" "ecommerce_bucket" {
   bucket = var.bucket_name
 
-  acl = "public-read"
+  acl = "private"
 
   tags = {
     Project = "ECommerce-IaC-Pipeline"
     Owner   = "Member3"
     Environment = "Development"
   }
+   
+  versioning {
+    enabled = true
+  }
+
+  server_side_encryption_comfiguration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {

@@ -37,3 +37,8 @@ Server-side encryption is not configured.
 
 Purpose:
 Allows security tools to report missing encryption.
+
+## Fixed Issues 
+- Changed S3 bucket ACL from public-read to private.
+- Enabled bucket versioning.
+- Enabled server-side encryption (AES256).
