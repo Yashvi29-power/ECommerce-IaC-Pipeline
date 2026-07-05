@@ -42,3 +42,15 @@ Allows security tools to report missing encryption.
 - Changed S3 bucket ACL from public-read to private.
 - Enabled bucket versioning.
 - Enabled server-side encryption (AES256).
+
+## Security Improvements
+
+- Enabled S3 Bucket Versioning
+- Blocked Public ACLs
+- Blocked Public Policies
+- Restricted Public Buckets
+- Ignored Public ACLs
+
+## Purpose
+
+These configurations protect the S3 bucket from accidental public exposure and improve data recovery.
