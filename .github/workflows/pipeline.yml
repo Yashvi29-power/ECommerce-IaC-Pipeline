@@ -25,17 +25,14 @@ jobs:
 
       - name: Install Dependencies
         run: |
-            pip install -r app/requirements.txt
-            pip install safety
-            pip install cyclonedx-bom
-
-      - name: Install pip-audit
-        run: |
-            pip install pip-audit
+          pip install -r app/requirements.txt
+          pip install pip-audit
+          pip install cyclonedx-bom
+          pip install checkov
 
       - name: Dependency Vulnerability Scan
         run: |
-            pip-audit -r app/requirements.txt
+          pip-audit -r app/requirements.txt
 
       - name: Security Scan
         run: |
@@ -51,26 +48,23 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          pip install cyclonedx-bom
           cyclonedx-py requirements app/requirements.txt -o reports/sbom.json
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Validate Terraform
+      - name: Terraform Init
         run: |
-          cd terraform
-          terraform init
-          terraform validate
+          terraform -chdir=terraform init
 
-      - name: Install Checkov
+      - name: Terraform Validate
         run: |
-          pip install checkov
+          terraform -chdir=terraform validate
 
-      - name: Scan Infrastructure
+      - name: Checkov Infrastructure Scan
         run: |
           checkov -d terraform
-          
+
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
