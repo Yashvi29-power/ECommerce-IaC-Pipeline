@@ -1,0 +1,409 @@
+
+[0m[3mResult #1[0m [0m[1m[31mCRITICAL[39m[0m[39m[0m [1mSecurity group rule allows ingress from public internet.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:46
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   46  [0m[0m[31m[[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-no-public-ingress-sgr
+[0m[0m  [2m    Impact[0m Your port exposed to the internet
+[0m[0m  [2mResolution[0m Set a more restrictive cidr range
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/no-public-ingress-sgr/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule#cidr_blocks[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #2[0m [0m[1m[31mCRITICAL[39m[0m[39m[0m [1mSecurity group rule allows ingress from public internet.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:53
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   53  [0m[0m[31m[[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-no-public-ingress-sgr
+[0m[0m  [2m    Impact[0m Your port exposed to the internet
+[0m[0m  [2mResolution[0m Set a more restrictive cidr range
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/no-public-ingress-sgr/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule#cidr_blocks[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #3[0m [0m[1m[31mCRITICAL[39m[0m[39m[0m [1mSecurity group rule allows egress to multiple public internet addresses.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:60
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   60  [0m[0m[31m[[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-no-public-egress-sgr
+[0m[0m  [2m    Impact[0m Your port is egressing data to the internet
+[0m[0m  [2mResolution[0m Set a more restrictive cidr range
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/no-public-egress-sgr/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #4[0m [0m[31mHIGH[39m[0m [1mPublic access block does not block public ACLs[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[3m[2m:33
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   30  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_s3_bucket_public_access_block"[0m [38;5;37m"public_access"[0m {[0m
+[0m[90m   31  [0m[0m    [38;5;245mbucket[0m = aws_s3_bucket.ecommerce_bucket.id[0m
+[0m[90m   32  [0m[0m  [0m
+[0m[31m   33  [0m[0m[31m[[39m[0m[0m   [38;5;245mblock_public_acls[0m       = [38;5;166mfalse[0m[0m [3m[2m[3m(false)[0m
+[0m[90m   34  [0m[0m  [0m  [38;5;245mblock_public_policy[0m     = [38;5;166mfalse[0m
+[0m[90m   35  [0m[0m  [0m  [38;5;245mignore_public_acls[0m      = [38;5;166mfalse[0m
+[0m[90m   36  [0m[0m  [0m  [38;5;245mrestrict_public_buckets[0m = [38;5;166mfalse[0m
+[0m[90m   37  [0m[0m  [0m}[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-block-public-acls
+[0m[0m  [2m    Impact[0m PUT calls with public ACLs specified can make objects public
+[0m[0m  [2mResolution[0m Enable blocking any PUT calls with a public ACL specified
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/block-public-acls/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_acls[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #5[0m [0m[31mHIGH[39m[0m [1mPublic access block does not block public policies[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:34
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   30  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_s3_bucket_public_access_block"[0m [38;5;37m"public_access"[0m {[0m
+[0m[90m   31  [0m[0m    [38;5;245mbucket[0m = aws_s3_bucket.ecommerce_bucket.id[0m
+[0m[90m   32  [0m[0m  [0m
+[0m[90m   33  [0m[0m    [38;5;245mblock_public_acls[0m       = [38;5;166mfalse[0m
+[0m[31m   34  [0m[0m[31m[[39m[0m[0m [0m  [38;5;245mblock_public_policy[0m     = [38;5;166mfalse[0m[0m [3m[2m[3m(false)[0m
+[0m[90m   35  [0m[0m  [0m  [38;5;245mignore_public_acls[0m      = [38;5;166mfalse[0m
+[0m[90m   36  [0m[0m  [0m  [38;5;245mrestrict_public_buckets[0m = [38;5;166mfalse[0m
+[0m[90m   37  [0m[0m  [0m}[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-block-public-policy
+[0m[0m  [2m    Impact[0m Users could put a policy that allows public access
+[0m[0m  [2mResolution[0m Prevent policies that allow public access being PUT
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/block-public-policy/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_policy[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #6[0m [0m[31mHIGH[39m[0m [1mPublic access block does not ignore public ACLs[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:35
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   30  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_s3_bucket_public_access_block"[0m [38;5;37m"public_access"[0m {[0m
+[0m[90m   31  [0m[0m    [38;5;245mbucket[0m = aws_s3_bucket.ecommerce_bucket.id[0m
+[0m[90m   32  [0m[0m  [0m
+[0m[90m   33  [0m[0m    [38;5;245mblock_public_acls[0m       = [38;5;166mfalse[0m
+[0m[90m   34  [0m[0m  [0m  [38;5;245mblock_public_policy[0m     = [38;5;166mfalse[0m
+[0m[31m   35  [0m[0m[31m[[39m[0m[0m [0m  [38;5;245mignore_public_acls[0m      = [38;5;166mfalse[0m[0m [3m[2m[3m(false)[0m
+[0m[90m   36  [0m[0m  [0m  [38;5;245mrestrict_public_buckets[0m = [38;5;166mfalse[0m
+[0m[90m   37  [0m[0m  [0m}[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-ignore-public-acls
+[0m[0m  [2m    Impact[0m PUT calls with public ACLs specified can make objects public
+[0m[0m  [2mResolution[0m Enable ignoring the application of public ACLs in PUT calls
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/ignore-public-acls/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#ignore_public_acls[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #7[0m [0m[31mHIGH[39m[0m [1mPublic access block does not restrict public buckets[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:36
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   30  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_s3_bucket_public_access_block"[0m [38;5;37m"public_access"[0m {[0m
+[0m[90m   31  [0m[0m    [38;5;245mbucket[0m = aws_s3_bucket.ecommerce_bucket.id[0m
+[0m[90m   32  [0m[0m  [0m
+[0m[90m   33  [0m[0m    [38;5;245mblock_public_acls[0m       = [38;5;166mfalse[0m
+[0m[90m   34  [0m[0m  [0m  [38;5;245mblock_public_policy[0m     = [38;5;166mfalse[0m
+[0m[90m   35  [0m[0m  [0m  [38;5;245mignore_public_acls[0m      = [38;5;166mfalse[0m
+[0m[31m   36  [0m[0m[31m[[39m[0m[0m [0m  [38;5;245mrestrict_public_buckets[0m = [38;5;166mfalse[0m[0m [3m[2m[3m(false)[0m
+[0m[90m   37  [0m[0m  [0m}[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-no-public-buckets
+[0m[0m  [2m    Impact[0m Public buckets can be accessed by anyone
+[0m[0m  [2mResolution[0m Limit the access to public buckets to only the owner or AWS Services (eg; CloudFront)
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/no-public-buckets/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#restrict_public_buckets¡[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #8[0m [0m[31mHIGH[39m[0m [1mBucket does not have encryption enabled[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:5-28
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m    5  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_s3_bucket"[0m [38;5;37m"ecommerce_bucket"[0m {[0m
+[0m[31m    6  [0m[0m[31m│[39m[0m[0m   [38;5;245mbucket[0m = [38;5;33mvar[0m.bucket_name[0m
+[0m[31m    7  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m    8  [0m[0m[31m│[39m[0m[0m   [38;5;245macl[0m = [38;5;37m"private"[0m
+[0m[31m    9  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   10  [0m[0m[31m│[39m[0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   11  [0m[0m[31m│[39m[0m[0m     [38;5;245mProject[0m = [38;5;37m"ECommerce-IaC-Pipeline"[0m
+[0m[31m   12  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mOwner[0m   = [38;5;37m"Member3"[0m
+[0m[31m   13  [0m[0m[31m└[39m[0m[0m [0m    [38;5;245mEnvironment[0m = [38;5;37m"Development"[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-enable-bucket-encryption
+[0m[0m  [2m    Impact[0m The bucket objects could be read if compromised
+[0m[0m  [2mResolution[0m Configure bucket encryption
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/enable-bucket-encryption/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #9[0m [0m[31mHIGH[39m[0m [1mBucket does not encrypt data with a customer managed key.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:5-28
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m    5  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_s3_bucket"[0m [38;5;37m"ecommerce_bucket"[0m {[0m
+[0m[31m    6  [0m[0m[31m│[39m[0m[0m   [38;5;245mbucket[0m = [38;5;33mvar[0m.bucket_name[0m
+[0m[31m    7  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m    8  [0m[0m[31m│[39m[0m[0m   [38;5;245macl[0m = [38;5;37m"private"[0m
+[0m[31m    9  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   10  [0m[0m[31m│[39m[0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   11  [0m[0m[31m│[39m[0m[0m     [38;5;245mProject[0m = [38;5;37m"ECommerce-IaC-Pipeline"[0m
+[0m[31m   12  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mOwner[0m   = [38;5;37m"Member3"[0m
+[0m[31m   13  [0m[0m[31m└[39m[0m[0m [0m    [38;5;245mEnvironment[0m = [38;5;37m"Development"[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-encryption-customer-key
+[0m[0m  [2m    Impact[0m Using AWS managed keys does not allow for fine grained control
+[0m[0m  [2mResolution[0m Enable encryption using customer managed keys
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/encryption-customer-key/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #10[0m [0m[31mHIGH[39m[0m [1mInstance does not require IMDS access to require a token[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:68-77
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m   68  [0m[0m [0m[0m [38;5;33mresource[0m [38;5;37m"aws_instance"[0m [38;5;37m"web_server"[0m {[0m
+[0m[31m   69  [0m[0m [0m[0m   [38;5;245mami[0m = [38;5;33mvar[0m.ami_id [0m
+[0m[31m   70  [0m[0m [0m[0m   [38;5;245minstance_type[0m = [38;5;33mvar[0m.instance_type[0m
+[0m[31m   71  [0m[0m [0m[0m [0m
+[0m[31m   72  [0m[0m [0m[0m   [38;5;245mvpc_security_group_ids[0m = [ aws_security_group.web_sg.id ][0m
+[0m[31m   73  [0m[0m [0m[0m [0m
+[0m[31m   74  [0m[0m [0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   75  [0m[0m [0m[0m     [38;5;245mName[0m = [38;5;37m"ECommerce-Web_Server"[0m
+[0m[31m   76  [0m[0m [0m[0m [0m  }[0m
+[0m[31m   77  [0m[0m [0m[0m }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-enforce-http-token-imds
+[0m[0m  [2m    Impact[0m Instance metadata service can be interacted with freely
+[0m[0m  [2mResolution[0m Enable HTTP token requirement for IMDS
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/enforce-http-token-imds/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #11[0m [0m[31mHIGH[39m[0m [1mRoot block device is not encrypted.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:68-77
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m   68  [0m[0m [0m[0m [38;5;33mresource[0m [38;5;37m"aws_instance"[0m [38;5;37m"web_server"[0m {[0m
+[0m[31m   69  [0m[0m [0m[0m   [38;5;245mami[0m = [38;5;33mvar[0m.ami_id [0m
+[0m[31m   70  [0m[0m [0m[0m   [38;5;245minstance_type[0m = [38;5;33mvar[0m.instance_type[0m
+[0m[31m   71  [0m[0m [0m[0m [0m
+[0m[31m   72  [0m[0m [0m[0m   [38;5;245mvpc_security_group_ids[0m = [ aws_security_group.web_sg.id ][0m
+[0m[31m   73  [0m[0m [0m[0m [0m
+[0m[31m   74  [0m[0m [0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   75  [0m[0m [0m[0m     [38;5;245mName[0m = [38;5;37m"ECommerce-Web_Server"[0m
+[0m[31m   76  [0m[0m [0m[0m [0m  }[0m
+[0m[31m   77  [0m[0m [0m[0m }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-enable-at-rest-encryption
+[0m[0m  [2m    Impact[0m The block device could be compromised and read from
+[0m[0m  [2mResolution[0m Turn on encryption for all block devices
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/enable-at-rest-encryption/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #12[0m [0m[33mMEDIUM[39m[0m [1mBucket does not have logging enabled[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:5-28
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m    5  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_s3_bucket"[0m [38;5;37m"ecommerce_bucket"[0m {[0m
+[0m[31m    6  [0m[0m[31m│[39m[0m[0m   [38;5;245mbucket[0m = [38;5;33mvar[0m.bucket_name[0m
+[0m[31m    7  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m    8  [0m[0m[31m│[39m[0m[0m   [38;5;245macl[0m = [38;5;37m"private"[0m
+[0m[31m    9  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   10  [0m[0m[31m│[39m[0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   11  [0m[0m[31m│[39m[0m[0m     [38;5;245mProject[0m = [38;5;37m"ECommerce-IaC-Pipeline"[0m
+[0m[31m   12  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mOwner[0m   = [38;5;37m"Member3"[0m
+[0m[31m   13  [0m[0m[31m└[39m[0m[0m [0m    [38;5;245mEnvironment[0m = [38;5;37m"Development"[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-enable-bucket-logging
+[0m[0m  [2m    Impact[0m There is no way to determine the access to this bucket
+[0m[0m  [2mResolution[0m Add a logging block to the resource to enable access logging
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/enable-bucket-logging/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #13[0m [0m[97mLOW[39m[0m [1mSecurity group explicitly uses the default description.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:39-66
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m   39  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[31m   40  [0m[0m[31m│[39m[0m[0m   [38;5;245mname[0m = [38;5;37m"web-security-group"[0m
+[0m[31m   41  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   42  [0m[0m[31m│[39m[0m[0m   ingress {[0m
+[0m[31m   43  [0m[0m[31m│[39m[0m[0m     [38;5;245mfrom_port[0m = [38;5;37m22[0m
+[0m[31m   44  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mto_port[0m = [38;5;37m22[0m
+[0m[31m   45  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mprotocol[0m = [38;5;37m"tcp"[0m
+[0m[31m   46  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[31m   47  [0m[0m[31m└[39m[0m[0m   }[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-add-description-to-security-group
+[0m[0m  [2m    Impact[0m Descriptions provide context for the firewall rule reasons
+[0m[0m  [2mResolution[0m Add descriptions for all security groups
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/add-description-to-security-group/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #14[0m [0m[97mLOW[39m[0m [1mSecurity group rule does not have a description.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[3m[2m:42-47
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   42  [0m[0m[31m┌[39m[0m[0m   ingress {[0m
+[0m[31m   43  [0m[0m[31m│[39m[0m[0m     [38;5;245mfrom_port[0m = [38;5;37m22[0m
+[0m[31m   44  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mto_port[0m = [38;5;37m22[0m
+[0m[31m   45  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mprotocol[0m = [38;5;37m"tcp"[0m
+[0m[31m   46  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[31m   47  [0m[0m[31m└[39m[0m[0m   }[0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-add-description-to-security-group-rule
+[0m[0m  [2m    Impact[0m Descriptions provide context for the firewall rule reasons
+[0m[0m  [2mResolution[0m Add descriptions for all security groups rules
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/add-description-to-security-group-rule/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #15[0m [0m[97mLOW[39m[0m [1mSecurity group rule does not have a description.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:49-54
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   49  [0m[0m[31m┌[39m[0m[0m   ingress {[0m
+[0m[31m   50  [0m[0m[31m│[39m[0m[0m     [38;5;245mfrom_port[0m = [38;5;37m80[0m
+[0m[31m   51  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mto_port[0m = [38;5;37m80[0m
+[0m[31m   52  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mprotocol[0m = [38;5;37m"tcp"[0m
+[0m[31m   53  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[31m   54  [0m[0m[31m└[39m[0m[0m   }[0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-add-description-to-security-group-rule
+[0m[0m  [2m    Impact[0m Descriptions provide context for the firewall rule reasons
+[0m[0m  [2mResolution[0m Add descriptions for all security groups rules
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/add-description-to-security-group-rule/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #16[0m [0m[97mLOW[39m[0m [1mSecurity group rule does not have a description.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:56-61
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[90m   39  [0m[0m  [38;5;33mresource[0m [38;5;37m"aws_security_group"[0m [38;5;37m"web_sg"[0m {[0m
+[0m[90m   ..  [0m
+[0m[31m   56  [0m[0m[31m┌[39m[0m[0m   egress {[0m
+[0m[31m   57  [0m[0m[31m│[39m[0m[0m     [38;5;245mfrom_port[0m = [38;5;37m0[0m
+[0m[31m   58  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mto_port[0m = [38;5;37m0[0m
+[0m[31m   59  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mprotocol[0m = [38;5;37m"-1"[0m
+[0m[31m   60  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mcidr_blocks[0m = [[38;5;37m"0.0.0.0/0"[0m][0m
+[0m[31m   61  [0m[0m[31m└[39m[0m[0m   }[0m
+[0m[90m   ..  [0m
+[0m[90m   66  [0m[0m  }[0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-add-description-to-security-group-rule
+[0m[0m  [2m    Impact[0m Descriptions provide context for the firewall rule reasons
+[0m[0m  [2mResolution[0m Add descriptions for all security groups rules
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/add-description-to-security-group-rule/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m  [1mtimings[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mdisk i/o            [0m 1.277411ms
+[0m[0m  [2mparsing             [0m 1.183395ms
+[0m[0m  [2madaptation          [0m 3.07146ms
+[0m[0m  [2mchecks              [0m 5.835809ms
+[0m[0m  [2mtotal               [0m 11.368075ms
+[0m
+[0m  [1mcounts[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mmodules downloaded  [0m 0
+[0m[0m  [2mmodules processed   [0m 1
+[0m[0m  [2mblocks processed    [0m 14
+[0m[0m  [2mfiles read          [0m 3
+[0m
+[0m  [1mresults[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mpassed              [0m 4
+[0m[0m  [2mignored             [0m 0
+[0m[0m  [2mcritical            [0m 3
+[0m[0m  [2mhigh                [0m 8
+[0m[0m  [2mmedium              [0m 1
+[0m[0m  [2mlow                 [0m 4
+[0m
+[0m  [31m[1m4 passed, 16 potential problem(s) detected.
+
+[0m

@@ -40,3 +40,11 @@ Week 1 ✅ Completed
 Week 2 ✅ Terraform Infrastructure Prepared
 
 Week 3 ⏳ Infrastructure Security Scanning
+
+
+## Week 3 Progess
+- Terraform scanned using Checkov
+- Terraform scanned usinf TFSec
+- Security issues identified
+- Security issues remediated
+- Reports generated
