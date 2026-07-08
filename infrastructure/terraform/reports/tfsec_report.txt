@@ -1,0 +1,1 @@
+Error: failed to access provided path: stat /home/harshita_07/ECommerce-IaC-Pipeline/infrastructure/terraform/infrastructure/terraform: no such file or directory
