@@ -55,3 +55,15 @@ terraform/
 reports/
 docs/
 ```
+
+## CI/CD Security Pipeline
+
+The project implements an automated GitHub Actions workflow that performs:
+
+- Dependency Vulnerability Scanning (pip-audit)
+- Static Application Security Testing (Bandit)
+- Docker Image Build
+- Software Bill of Materials (SBOM) Generation
+- Terraform Infrastructure Validation
+- Infrastructure Security Scanning (Checkov)
+- Upload of Security Artifacts
