@@ -1,0 +1,319 @@
+
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.3.6 
+Update available 3.3.6 -> 3.3.8
+Run pip3 install -U checkov to update 
+
+
+terraform scan results:
+
+Passed checks: 22, Failed checks: 8, Skipped checks: 0
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /main.tf:1-3
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-group-does-not-allow-all-traffic-on-all-ports
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+Check: CKV_AWS_382: "Ensure no security groups allow egress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-382
+Check: CKV_AWS_46: "Ensure no hard-coded secrets exist in EC2 user data"
+	PASSED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-1
+Check: CKV_AWS_8: "Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted"
+	PASSED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-13
+Check: CKV_AWS_126: "Ensure that detailed monitoring is enabled for EC2 instances"
+	PASSED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/ensure-that-detailed-monitoring-is-enabled-for-ec2-instances
+Check: CKV_AWS_88: "EC2 instance should not have public IP."
+	PASSED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/public-policies/public-12
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+	PASSED for resource: aws_s3_bucket_public_access_block.block_public
+	File: /main.tf:91-98
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+	PASSED for resource: aws_s3_bucket_public_access_block.block_public
+	File: /main.tf:91-98
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+	PASSED for resource: aws_s3_bucket_public_access_block.block_public
+	File: /main.tf:91-98
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+	PASSED for resource: aws_s3_bucket_public_access_block.block_public
+	File: /main.tf:91-98
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-2-acl-write-permissions-everyone
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-1-acl-read-permissions-everyone
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	PASSED for resource: aws_security_group.web_sg
+	File: /main.tf:28-60
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+Check: CKV_AWS_135: "Ensure that EC2 is EBS optimized"
+	FAILED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-ec2-is-ebs-optimized
+
+		62 | resource "aws_instance" "web_server" {
+		63 |   ami           = var.ami_id
+		64 |   instance_type = var.instance_type
+		65 | 
+		66 |   vpc_security_group_ids = [aws_security_group.web_sg.id]
+		67 | 
+		68 |   monitoring = true
+		69 |   
+		70 |   metadata options {
+		71 |     http_endpoint = "enabled"
+		72 |     http_tokens = "required"
+		73 |   }
+		74 |   root_block_device {
+		75 |     encrypted = true
+		76 |   }
+		77 | 
+		78 |   tags = {
+		79 |     Name = "ECommerce-Web_Server"
+		80 |   }
+		81 | }
+
+Check: CKV_AWS_79: "Ensure Instance Metadata Service Version 1 is not enabled"
+	FAILED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-31
+
+		62 | resource "aws_instance" "web_server" {
+		63 |   ami           = var.ami_id
+		64 |   instance_type = var.instance_type
+		65 | 
+		66 |   vpc_security_group_ids = [aws_security_group.web_sg.id]
+		67 | 
+		68 |   monitoring = true
+		69 |   
+		70 |   metadata options {
+		71 |     http_endpoint = "enabled"
+		72 |     http_tokens = "required"
+		73 |   }
+		74 |   root_block_device {
+		75 |     encrypted = true
+		76 |   }
+		77 | 
+		78 |   tags = {
+		79 |     Name = "ECommerce-Web_Server"
+		80 |   }
+		81 | }
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		5  | resource "aws_s3_bucket" "ecommerce_bucket" {
+		6  |   bucket = var.bucket_name
+		7  | 
+		8  |   acl = "private"
+		9  | 
+		10 |   tags = {
+		11 |     Project     = "ECommerce-IaC-Pipeline"
+		12 |     Owner       = "Member3"
+		13 |     Environment = "Development"
+		14 |   }
+		15 | 
+		16 | 
+		17 |   server_side_encryption_configuration {
+		18 |     rule {
+		19 |       apply_server_side_encryption_by_default {
+		20 |         sse_algorithm = "AES256"
+		21 |       }
+		22 |     }
+		23 |   }
+		24 | 
+		25 | }
+
+Check: CKV2_AWS_41: "Ensure an IAM role is attached to EC2 instance"
+	FAILED for resource: aws_instance.web_server
+	File: /main.tf:62-81
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-an-iam-role-is-attached-to-ec2-instance
+
+		62 | resource "aws_instance" "web_server" {
+		63 |   ami           = var.ami_id
+		64 |   instance_type = var.instance_type
+		65 | 
+		66 |   vpc_security_group_ids = [aws_security_group.web_sg.id]
+		67 | 
+		68 |   monitoring = true
+		69 |   
+		70 |   metadata options {
+		71 |     http_endpoint = "enabled"
+		72 |     http_tokens = "required"
+		73 |   }
+		74 |   root_block_device {
+		75 |     encrypted = true
+		76 |   }
+		77 | 
+		78 |   tags = {
+		79 |     Name = "ECommerce-Web_Server"
+		80 |   }
+		81 | }
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		5  | resource "aws_s3_bucket" "ecommerce_bucket" {
+		6  |   bucket = var.bucket_name
+		7  | 
+		8  |   acl = "private"
+		9  | 
+		10 |   tags = {
+		11 |     Project     = "ECommerce-IaC-Pipeline"
+		12 |     Owner       = "Member3"
+		13 |     Environment = "Development"
+		14 |   }
+		15 | 
+		16 | 
+		17 |   server_side_encryption_configuration {
+		18 |     rule {
+		19 |       apply_server_side_encryption_by_default {
+		20 |         sse_algorithm = "AES256"
+		21 |       }
+		22 |     }
+		23 |   }
+		24 | 
+		25 | }
+
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+
+		5  | resource "aws_s3_bucket" "ecommerce_bucket" {
+		6  |   bucket = var.bucket_name
+		7  | 
+		8  |   acl = "private"
+		9  | 
+		10 |   tags = {
+		11 |     Project     = "ECommerce-IaC-Pipeline"
+		12 |     Owner       = "Member3"
+		13 |     Environment = "Development"
+		14 |   }
+		15 | 
+		16 | 
+		17 |   server_side_encryption_configuration {
+		18 |     rule {
+		19 |       apply_server_side_encryption_by_default {
+		20 |         sse_algorithm = "AES256"
+		21 |       }
+		22 |     }
+		23 |   }
+		24 | 
+		25 | }
+
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		5  | resource "aws_s3_bucket" "ecommerce_bucket" {
+		6  |   bucket = var.bucket_name
+		7  | 
+		8  |   acl = "private"
+		9  | 
+		10 |   tags = {
+		11 |     Project     = "ECommerce-IaC-Pipeline"
+		12 |     Owner       = "Member3"
+		13 |     Environment = "Development"
+		14 |   }
+		15 | 
+		16 | 
+		17 |   server_side_encryption_configuration {
+		18 |     rule {
+		19 |       apply_server_side_encryption_by_default {
+		20 |         sse_algorithm = "AES256"
+		21 |       }
+		22 |     }
+		23 |   }
+		24 | 
+		25 | }
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: aws_s3_bucket.ecommerce_bucket
+	File: /main.tf:5-25
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		5  | resource "aws_s3_bucket" "ecommerce_bucket" {
+		6  |   bucket = var.bucket_name
+		7  | 
+		8  |   acl = "private"
+		9  | 
+		10 |   tags = {
+		11 |     Project     = "ECommerce-IaC-Pipeline"
+		12 |     Owner       = "Member3"
+		13 |     Environment = "Development"
+		14 |   }
+		15 | 
+		16 | 
+		17 |   server_side_encryption_configuration {
+		18 |     rule {
+		19 |       apply_server_side_encryption_by_default {
+		20 |         sse_algorithm = "AES256"
+		21 |       }
+		22 |     }
+		23 |   }
+		24 | 
+		25 | }
+
+

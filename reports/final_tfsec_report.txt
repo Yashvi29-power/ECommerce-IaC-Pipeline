@@ -1,0 +1,103 @@
+
+[0m[3mResult #1[0m [0m[31mHIGH[39m[0m [1mBucket does not encrypt data with a customer managed key.[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:5-25
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m    5  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_s3_bucket"[0m [38;5;37m"ecommerce_bucket"[0m {[0m
+[0m[31m    6  [0m[0m[31m│[39m[0m[0m   [38;5;245mbucket[0m = [38;5;33mvar[0m.bucket_name[0m
+[0m[31m    7  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m    8  [0m[0m[31m│[39m[0m[0m   [38;5;245macl[0m = [38;5;37m"private"[0m
+[0m[31m    9  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   10  [0m[0m[31m│[39m[0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   11  [0m[0m[31m│[39m[0m[0m     [38;5;245mProject[0m     = [38;5;37m"ECommerce-IaC-Pipeline"[0m
+[0m[31m   12  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mOwner[0m       = [38;5;37m"Member3"[0m
+[0m[31m   13  [0m[0m[31m└[39m[0m[0m [0m    [38;5;245mEnvironment[0m = [38;5;37m"Development"[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-encryption-customer-key
+[0m[0m  [2m    Impact[0m Using AWS managed keys does not allow for fine grained control
+[0m[0m  [2mResolution[0m Enable encryption using customer managed keys
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/encryption-customer-key/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #2[0m [0m[31mHIGH[39m[0m [1mInstance does not require IMDS access to require a token[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:62-81
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m   62  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_instance"[0m [38;5;37m"web_server"[0m {[0m
+[0m[31m   63  [0m[0m[31m│[39m[0m[0m   [38;5;245mami[0m           = [38;5;33mvar[0m.ami_id[0m
+[0m[31m   64  [0m[0m[31m│[39m[0m[0m   [38;5;245minstance_type[0m = [38;5;33mvar[0m.instance_type[0m
+[0m[31m   65  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m   66  [0m[0m[31m│[39m[0m[0m   [38;5;245mvpc_security_group_ids[0m = [aws_security_group.web_sg.id][0m
+[0m[31m   67  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m   68  [0m[0m[31m│[39m[0m[0m   [38;5;245mmonitoring[0m = [38;5;166mtrue[0m
+[0m[31m   69  [0m[0m[31m│[39m[0m[0m [0m  [0m
+[0m[31m   70  [0m[0m[31m└[39m[0m[0m   metadata options {[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-ec2-enforce-http-token-imds
+[0m[0m  [2m    Impact[0m Instance metadata service can be interacted with freely
+[0m[0m  [2mResolution[0m Enable HTTP token requirement for IMDS
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/ec2/enforce-http-token-imds/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m[3mResult #3[0m [0m[33mMEDIUM[39m[0m [1mBucket does not have logging enabled[0m [2m[0m
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m[0m  [3mmain.tf[2m[3m:5-25
+[0m[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m[31m    5  [0m[0m[31m┌[39m[0m[0m [38;5;33mresource[0m [38;5;37m"aws_s3_bucket"[0m [38;5;37m"ecommerce_bucket"[0m {[0m
+[0m[31m    6  [0m[0m[31m│[39m[0m[0m   [38;5;245mbucket[0m = [38;5;33mvar[0m.bucket_name[0m
+[0m[31m    7  [0m[0m[31m│[39m[0m[0m [0m
+[0m[31m    8  [0m[0m[31m│[39m[0m[0m   [38;5;245macl[0m = [38;5;37m"private"[0m
+[0m[31m    9  [0m[0m[31m│[39m[0m[0m [0m[0m
+[0m[31m   10  [0m[0m[31m│[39m[0m[0m   [38;5;245mtags[0m = {[0m
+[0m[31m   11  [0m[0m[31m│[39m[0m[0m     [38;5;245mProject[0m     = [38;5;37m"ECommerce-IaC-Pipeline"[0m
+[0m[31m   12  [0m[0m[31m│[39m[0m[0m [0m    [38;5;245mOwner[0m       = [38;5;37m"Member3"[0m
+[0m[31m   13  [0m[0m[31m└[39m[0m[0m [0m    [38;5;245mEnvironment[0m = [38;5;37m"Development"[0m
+[0m[90m   ..  [0m
+[0m[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[0m[0m  [2m        ID[0m[3m aws-s3-enable-bucket-logging
+[0m[0m  [2m    Impact[0m There is no way to determine the access to this bucket
+[0m[0m  [2mResolution[0m Add a logging block to the resource to enable access logging
+[0m[0m
+  [2mMore Information[0m[0m[0m
+  [2m-[0m [34mhttps://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/s3/enable-bucket-logging/[0m[0m
+  [2m-[0m [34mhttps://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket[0m[0m
+[90m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+
+
+[0m[0m  [1mtimings[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mdisk i/o            [0m 1.418711ms
+[0m[0m  [2mparsing             [0m 1.107074ms
+[0m[0m  [2madaptation          [0m 2.766456ms
+[0m[0m  [2mchecks              [0m 19.058606ms
+[0m[0m  [2mtotal               [0m 24.350847ms
+[0m
+[0m  [1mcounts[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mmodules downloaded  [0m 0
+[0m[0m  [2mmodules processed   [0m 1
+[0m[0m  [2mblocks processed    [0m 13
+[0m[0m  [2mfiles read          [0m 3
+[0m
+[0m  [1mresults[0m
+  ──────────────────────────────────────────
+[0m[0m  [2mpassed              [0m 17
+[0m[0m  [2mignored             [0m 0
+[0m[0m  [2mcritical            [0m 0
+[0m[0m  [2mhigh                [0m 2
+[0m[0m  [2mmedium              [0m 1
+[0m[0m  [2mlow                 [0m 0
+[0m
+[0m  [31m[1m17 passed, 3 potential problem(s) detected.
+
+[0m

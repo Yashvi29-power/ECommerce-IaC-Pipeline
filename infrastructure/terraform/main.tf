@@ -27,31 +27,36 @@ resource "aws_s3_bucket" "ecommerce_bucket" {
 
 resource "aws_security_group" "web_sg" {
   name = "web-security-group"
+  description = "Security group for ECommerce web server"
 
   ingress {
+    description = "SSH access"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["157.48.86.222/32"]
   }
 
   ingress {
+    description = "HTTP access"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["157.48.86.222/32"]
   }
 
   egress {
+    description = "Outbound traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["157.48.86.222/32"]
   }
 
   tags = {
     Name = "web-security-group"
   }
+
 }
 
 resource "aws_instance" "web_server" {
@@ -59,6 +64,16 @@ resource "aws_instance" "web_server" {
   instance_type = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
+
+  monitoring = true
+  
+  metadata options {
+    http_endpoint = "enabled"
+    http_tokens = "required"
+  }
+  root_block_device {
+    encrypted = true
+  }
 
   tags = {
     Name = "ECommerce-Web_Server"
