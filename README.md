@@ -67,3 +67,20 @@ The project implements an automated GitHub Actions workflow that performs:
 - Terraform Infrastructure Validation
 - Infrastructure Security Scanning (Checkov)
 - Upload of Security Artifacts
+
+## Project Status
+
+The project currently includes:
+
+- Flask backend application
+- Docker containerization
+- GitHub Actions CI pipeline
+- Dependency vulnerability scanning
+- Static application security testing
+- Infrastructure as Code validation
+- Infrastructure security scanning
+- Software Bill of Materials generation
+- Security documentation
+- Automated artifact generation
+
+The repository is organized according to DevSecOps best practices and is ready for further enhancements.
