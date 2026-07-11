@@ -48,3 +48,8 @@ Week 3 ⏳ Infrastructure Security Scanning
 - Security issues identified
 - Security issues remediated
 - Reports generated
+
+## Week 4 
+- Reviewed remaining security findings.
+- Categorized advanced enterprise security controls.
+- Prepared roadmap for final remediation
