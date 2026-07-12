@@ -38,6 +38,10 @@ jobs:
         run: |
           bandit -r app/
 
+      - name: Code Quality Check
+        run: |
+        flake8 app/
+
       - name: Verify Application
         run: |
           python -m py_compile app/app.py
