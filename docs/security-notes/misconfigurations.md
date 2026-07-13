@@ -51,6 +51,18 @@ Allows security tools to report missing encryption.
 - Restricted Public Buckets
 - Ignored Public ACLs
 
-## Purpose
 
-These configurations protect the S3 bucket from accidental public exposure and improve data recovery.
+## Improvements
+
+- Added S3 Lifecycle Configuration.
+- Bucket objects older than 365 days will expire automatically.
+
+## Benefits
+
+- Reduces storage costs.
+- Improves bucket management.
+- Follows AWS storage best practices.
+
+## Status
+
+Infrastructure security further improved.
