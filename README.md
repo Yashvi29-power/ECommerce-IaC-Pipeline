@@ -2,6 +2,17 @@
 
 A DevSecOps project focused on securing an enterprise e-commerce deployment pipeline using CI/CD, container security, Infrastructure as Code (IaC) scanning, and automated security testing.
 
+## DevSecOps CI/CD Pipeline
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Flask](https://img.shields.io/badge/Flask-Web%20Application-black)
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-success)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-purple)
+![Checkov](https://img.shields.io/badge/Checkov-IaC%20Security-red)
+![Bandit](https://img.shields.io/badge/Bandit-SAST-orange)
+![SBOM](https://img.shields.io/badge/SBOM-CycloneDX-green)
+
 ## Technology Stack
 
 * GitHub Actions
@@ -84,3 +95,17 @@ The project currently includes:
 - Automated artifact generation
 
 The repository is organized according to DevSecOps best practices and is ready for further enhancements.
+
+## Features
+
+- Flask Web Application
+- Docker Containerization
+- Automated CI/CD Pipeline
+- Infrastructure as Code
+- Dependency Security Scanning
+- Static Code Security Analysis
+- Code Quality Checks
+- Software Bill of Materials
+- Infrastructure Security Validation
+- Automated Security Reports
+
