@@ -29,3 +29,7 @@ The Flask development server binds to 0.0.0.0 for Docker compatibility.
 This finding is documented and suppressed using:
 
 # nosec B104
+
+## Pipeline Validation
+
+The DevSecOps pipeline was validated by executing application verification, dependency scanning, static application security testing, infrastructure validation, infrastructure security scanning, and code quality analysis. The workflow demonstrates the integration of multiple security controls into an automated CI/CD process.
