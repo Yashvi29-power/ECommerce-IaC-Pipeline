@@ -28,6 +28,8 @@ LABEL maintainer="Sarbajit Samantaray"
 LABEL description="Production image - minimal, hardened, non-root"
 LABEL security.non-root="true"
 LABEL security.multi-stage="true"
+LABEL security.cap-drop="ALL"
+LABEL security.no-new-privileges="true"
 
 WORKDIR /app
 
@@ -41,10 +43,16 @@ COPY app.py .
 RUN addgroup --system appgroup && \
     adduser --system --ingroup appgroup appuser && \
     chown -R appuser:appgroup /app && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/* /usr/share/doc/* /usr/share/man/* /tmp/*
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+           /usr/share/doc/* /usr/share/man/* /tmp/* \
+           /root/.cache /home/*/.cache
 
 # Switch to non-root user
 USER appuser
+
+# Healthcheck instruction for container orchestration
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python3 -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"
 
 # Expose application port
 EXPOSE 5000
